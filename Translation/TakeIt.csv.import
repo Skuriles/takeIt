@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translation/TakeIt.en.translation", "res://Translation/TakeIt.de.translation" ]
+
+source_file="res://Translation/TakeIt.csv"
+dest_files=[ "res://Translation/TakeIt.en.translation", "res://Translation/TakeIt.de.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

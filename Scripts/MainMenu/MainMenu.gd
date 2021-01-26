@@ -1,0 +1,140 @@
+extends Node2D
+
+var bodyIndex = 0
+var armIndex = 0
+var upperIndex = 0
+var lowerIndex = 0
+var shoesIndex = 0
+var hairIndex = 0
+var moustacheIndex = 0
+var frameIndex = 0
+
+onready var maxIndices = getMaxIndices()
+onready var maxFrames = getMaxFrames()
+
+
+func _ready():
+	$Player.stopAnimation()
+	$Player.scale = Vector2(10, 10)
+	$Player.setBodyFrame(0)
+	updatePlayerBody()
+
+
+func getMaxIndices():
+	return [
+		CompositeSprites.body_sprites.size() - 1,
+		CompositeSprites.arm_sprites.size() - 1,
+		CompositeSprites.upper_sprites.size() - 1,
+		CompositeSprites.lower_sprites.size() - 1,
+		CompositeSprites.shoe_sprites.size() - 1,
+		CompositeSprites.hair_sprites.size() - 1,
+		CompositeSprites.moustache_sprites.size() - 1
+	]
+
+
+func getMaxFrames():
+	return $Player/KinematicBody2D/BodySprites/Body.hframes
+
+
+func updatePlayerBody():
+	$Player.setBodyIndices(
+		[bodyIndex, armIndex, upperIndex, lowerIndex, shoesIndex, hairIndex, moustacheIndex]
+	)
+
+
+func rotatePlayer(right: bool):
+	if right:
+		if frameIndex >= maxFrames - 4:
+			frameIndex = 0
+		else:
+			frameIndex += 4
+	else:
+		if frameIndex == 0:
+			frameIndex = maxFrames - 4
+		else:
+			frameIndex -= 4
+	$Player.setBodyFrame(frameIndex)
+
+
+func updateArms(next: bool):
+	if next:
+		if armIndex == maxIndices[1]:
+			armIndex = 0
+		else:
+			armIndex += 1
+	else:
+		if armIndex == 0:
+			armIndex = maxIndices[1]
+		else:
+			armIndex -= 1
+	updatePlayerBody()
+
+
+func updateUpper(next: bool):
+	if next:
+		if upperIndex == maxIndices[2]:
+			upperIndex = 0
+		else:
+			upperIndex += 1
+	else:
+		if upperIndex == 0:
+			upperIndex = maxIndices[2]
+		else:
+			upperIndex -= 1
+	updatePlayerBody()
+
+
+func updateLower(next: bool):
+	if next:
+		if lowerIndex == maxIndices[3]:
+			lowerIndex = 0
+		else:
+			lowerIndex += 1
+	else:
+		if lowerIndex == 0:
+			lowerIndex = maxIndices[3]
+		else:
+			lowerIndex -= 1
+	updatePlayerBody()
+
+
+func updateShoes(next: bool):
+	if next:
+		if shoesIndex == maxIndices[4]:
+			shoesIndex = 0
+		else:
+			shoesIndex += 1
+	else:
+		if shoesIndex == 0:
+			shoesIndex = maxIndices[4]
+		else:
+			shoesIndex -= 1
+	updatePlayerBody()
+
+
+func updateHair(next: bool):
+	if next:
+		if hairIndex == maxIndices[5]:
+			hairIndex = 0
+		else:
+			hairIndex += 1
+	else:
+		if hairIndex == 0:
+			hairIndex = maxIndices[5]
+		else:
+			hairIndex -= 1
+	updatePlayerBody()
+
+
+func updateMoustache(next: bool):
+	if next:
+		if moustacheIndex == maxIndices[6]:
+			moustacheIndex = 0
+		else:
+			moustacheIndex += 1
+	else:
+		if moustacheIndex == 0:
+			moustacheIndex = maxIndices[6]
+		else:
+			moustacheIndex -= 1
+	updatePlayerBody()
