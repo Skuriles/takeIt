@@ -18,10 +18,11 @@ func _ready():
 	$Player.disableMovement(true)
 	$Player.setBodyFrame(0)
 	updatePlayerBody()
+	$Camera2D.set_new_node(self)
 
 
 func _on_StartGame_pressed():
-	var changed = get_tree().change_scene("res://Scenes//Room_Kiosk.tscn")
+	var changed = get_tree().change_scene("res://Scenes//Overview.tscn")
 	print(changed)
 
 

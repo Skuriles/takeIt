@@ -733,53 +733,47 @@ tracks/6/keys = {
 extents = Vector2( 8, 10 )
 
 [sub_resource type="CapsuleShape2D" id=10]
-height = 4.0
+height = 0.0
 
 [node name="Player" type="Node2D"]
 scale = Vector2( 2, 2 )
+z_index = 2
+z_as_relative = false
 script = ExtResource( 5 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+z_index = 2
+z_as_relative = false
 script = ExtResource( 9 )
-
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
-current = true
 
 [node name="BodySprites" type="Node2D" parent="KinematicBody2D"]
 
 [node name="Body" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 10
 texture = ExtResource( 8 )
 hframes = 32
 
 [node name="Arms" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 12
 texture = ExtResource( 2 )
 hframes = 32
 
 [node name="Shoes" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 12
 texture = ExtResource( 3 )
 hframes = 32
 
 [node name="Lower" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 11
 texture = ExtResource( 4 )
 hframes = 32
 
 [node name="Upper" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 11
 texture = ExtResource( 6 )
 hframes = 32
 frame = 1
 
 [node name="Hair" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 11
 texture = ExtResource( 7 )
 hframes = 32
 
 [node name="Moustache" type="Sprite" parent="KinematicBody2D/BodySprites"]
-z_index = 11
 texture = ExtResource( 1 )
 hframes = 32
 

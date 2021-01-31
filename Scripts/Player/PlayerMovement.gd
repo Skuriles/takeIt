@@ -19,7 +19,7 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player.noMovement == false:
 		get_input()
-		move_and_slide(velocity)
+		var _move2 = move_and_slide(velocity)
