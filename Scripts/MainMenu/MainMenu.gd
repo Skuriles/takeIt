@@ -15,21 +15,37 @@ onready var maxFrames = getMaxFrames()
 
 func _ready():
 	$Player.stopAnimation()
-	$Player.scale = Vector2(10, 10)
+	$Player.disableMovement(true)
 	$Player.setBodyFrame(0)
 	updatePlayerBody()
 
 
+func _on_StartGame_pressed():
+	var changed = get_tree().change_scene("res://Scenes//Room_Kiosk.tscn")
+	print(changed)
+
+
 func getMaxIndices():
-	return [
-		CompositeSprites.body_sprites.size() - 1,
-		CompositeSprites.arm_sprites.size() - 1,
-		CompositeSprites.upper_sprites.size() - 1,
-		CompositeSprites.lower_sprites.size() - 1,
-		CompositeSprites.shoe_sprites.size() - 1,
-		CompositeSprites.hair_sprites.size() - 1,
-		CompositeSprites.moustache_sprites.size() - 1
-	]
+	if $Player.baseChar.gender:
+		return [
+			CompositeSprites.body_sprites.size() - 1,
+			CompositeSprites.arm_sprites.size() - 1,
+			CompositeSprites.upper_sprites.size() - 1,
+			CompositeSprites.lower_sprites.size() - 1,
+			CompositeSprites.shoe_sprites.size() - 1,
+			CompositeSprites.hair_sprites.size() - 1,
+			CompositeSprites.moustache_sprites.size() - 1
+		]
+	else:
+		return [
+			CompositeSprites.body_sprites_w.size() - 1,
+			CompositeSprites.arm_sprites_w.size() - 1,
+			CompositeSprites.upper_sprites_w.size() - 1,
+			CompositeSprites.lower_sprites_w.size() - 1,
+			CompositeSprites.shoe_sprites_w.size() - 1,
+			CompositeSprites.hair_sprites_w.size() - 1,
+			CompositeSprites.moustache_sprites_w.size() - 1
+		]
 
 
 func getMaxFrames():
@@ -40,6 +56,32 @@ func updatePlayerBody():
 	$Player.setBodyIndices(
 		[bodyIndex, armIndex, upperIndex, lowerIndex, shoesIndex, hairIndex, moustacheIndex]
 	)
+
+
+func setmale(male: bool):
+	$Player.setGender(male)
+	maxIndices = getMaxIndices()
+	checkBodyFrames()
+	updatePlayerBody()
+	if male:
+		$Labels/Moustache.text = tr("MOUSTACHE")
+	else:
+		$Labels/Moustache.text = tr("LIPS")
+
+
+func checkBodyFrames():
+	if armIndex > maxIndices[1]:
+		armIndex = 0
+	if upperIndex > maxIndices[2]:
+		upperIndex = 0
+	if lowerIndex > maxIndices[3]:
+		lowerIndex = 0
+	if shoesIndex > maxIndices[4]:
+		shoesIndex = 0
+	if hairIndex > maxIndices[5]:
+		hairIndex = 0
+	if moustacheIndex > maxIndices[6]:
+		moustacheIndex = 0
 
 
 func rotatePlayer(right: bool):

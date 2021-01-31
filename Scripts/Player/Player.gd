@@ -1,5 +1,7 @@
 extends Node2D
 
+var baseChar
+
 onready var bodySprite = $KinematicBody2D/BodySprites/Body
 onready var shoesSprite = $KinematicBody2D/BodySprites/Shoes
 onready var armSprite = $KinematicBody2D/BodySprites/Arms
@@ -13,17 +15,23 @@ onready var animatedSprite = $KinematicBody2D/BodySprites/AnimationPlayer
 var LastDirection = EDirections.IdleDown
 
 var animationAllowed = true
+var noMovement = false
+
 
 func _ready():
-	var array = GameManager.mainCharBodyIndices
-	setBodyIndices(array)			
+	baseChar = GameManager.baseChar	
+	setBodyIndices(baseChar.mainCharBodyIndices)			
 	animatedSprite.stop()
 	
 func _process(_delta):
 	if animationAllowed:
 		detectInput();
 		selectAnimation();		
-	
+
+func setGender(male: bool):
+	baseChar.gender = male
+
+
 func setBodyFrame(index: int):
 	bodySprite.frame = index
 	armSprite.frame = index
@@ -35,18 +43,30 @@ func setBodyFrame(index: int):
 
 func setBodyIndices(spriteIndex: Array):	
 	# think about to make a bool flag when to use it globally:
-	GameManager.mainCharBodyIndices = spriteIndex
-	bodySprite.texture = CompositeSprites.body_sprites[spriteIndex[0]]
-	armSprite.texture = CompositeSprites.arm_sprites[spriteIndex[1]]		
-	upperSprite.texture = CompositeSprites.upper_sprites[spriteIndex[2]]
-	lowerSprite.texture = CompositeSprites.lower_sprites[spriteIndex[3]]
-	shoesSprite.texture = CompositeSprites.shoe_sprites[spriteIndex[4]]
-	hairSprite.texture = CompositeSprites.hair_sprites[spriteIndex[5]]	
-	moustachSprite.texture = CompositeSprites.moustache_sprites[spriteIndex[6]]	
+	baseChar.mainCharBodyIndices = spriteIndex
+	if baseChar.gender:
+		bodySprite.texture = CompositeSprites.body_sprites[spriteIndex[0]]
+		armSprite.texture = CompositeSprites.arm_sprites[spriteIndex[1]]		
+		upperSprite.texture = CompositeSprites.upper_sprites[spriteIndex[2]]
+		lowerSprite.texture = CompositeSprites.lower_sprites[spriteIndex[3]]
+		shoesSprite.texture = CompositeSprites.shoe_sprites[spriteIndex[4]]
+		hairSprite.texture = CompositeSprites.hair_sprites[spriteIndex[5]]	
+		moustachSprite.texture = CompositeSprites.moustache_sprites[spriteIndex[6]]	
+	else:
+		bodySprite.texture = CompositeSprites.body_sprites_w[spriteIndex[0]]
+		armSprite.texture = CompositeSprites.arm_sprites_w[spriteIndex[1]]		
+		upperSprite.texture = CompositeSprites.upper_sprites_w[spriteIndex[2]]
+		lowerSprite.texture = CompositeSprites.lower_sprites_w[spriteIndex[3]]
+		shoesSprite.texture = CompositeSprites.shoe_sprites_w[spriteIndex[4]]
+		hairSprite.texture = CompositeSprites.hair_sprites_w[spriteIndex[5]]	
+		moustachSprite.texture = CompositeSprites.moustache_sprites_w[spriteIndex[6]]	
 	
 func stopAnimation():
 	animationAllowed = false
-	
+
+func disableMovement(disable: bool):
+	noMovement = disable
+
 func detectInput():
 	if Input.is_action_pressed("ui_left"):		
 		LastDirection = EDirections.WalkLeft;			

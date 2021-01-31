@@ -6,12 +6,20 @@ extends GridContainer
 onready var main = get_parent()
 
 
+func _on_SetMale_pressed():
+	main.setmale(true)
+
+
+func _on_SetFemale_pressed():
+	main.setmale(false)
+
+
 func _on_RotateLeft_pressed():
 	main.rotatePlayer(false)
 
 
 func _on_RotateRight_pressed():
-	main.rotatePlayer(false)
+	main.rotatePlayer(true)
 
 
 func _on_ToggleArmsPrev_pressed():

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Prey.gd" type="Script" id=1]
+[ext_resource path="res://Assets/PreyImages/antique_1.png" type="Image" id=2]
+
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+image = ExtResource( 2 )
+minValue = 250
+maxValue = 1500
+type = 7
+weight = 30
