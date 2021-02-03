@@ -9,7 +9,7 @@ export var minValue: int
 export var maxValue: int
 export var type: int  # EPreyTypes.Antique
 export var weight: int
-var value: int = calcValue()
+onready var value: int = calcValue()
 
 
 func calcValue():

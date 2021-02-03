@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tools/crowbar.png" type="Image" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "CROWBAR"
+priceNew = 10
+priceSell = 2
+image = ExtResource( 2 )
+allowedTypes = [  ]
+typeTimes = {
+
+}

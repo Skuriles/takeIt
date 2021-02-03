@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Characters/Male/Moustache1_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Characters/Male/Arm.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Characters/Male/Body.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Player/PlayerMovement.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/Player/TriggerArea.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Player/ObjectTrigger.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle_down"
@@ -736,6 +737,9 @@ extents = Vector2( 8, 10 )
 radius = 8.99
 height = 0.0
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 3.99996, 16 )
+
 [node name="Player" type="Node2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 5 )
@@ -805,3 +809,39 @@ position = Vector2( 0, -8 )
 rotation = -3.14159
 shape = SubResource( 10 )
 one_way_collision = true
+
+[node name="LeftTrigger" type="Area2D" parent="KinematicBody2D"]
+script = ExtResource( 11 )
+
+[node name="LeftShape" type="CollisionShape2D" parent="KinematicBody2D/LeftTrigger"]
+position = Vector2( -8, 0 )
+rotation = -3.14159
+scale = Vector2( 2, 1 )
+shape = SubResource( 12 )
+
+[node name="RightTrigger" type="Area2D" parent="KinematicBody2D"]
+script = ExtResource( 11 )
+
+[node name="RightShape" type="CollisionShape2D" parent="KinematicBody2D/RightTrigger"]
+position = Vector2( 8, 0 )
+rotation = -3.14159
+scale = Vector2( 2, 1 )
+shape = SubResource( 12 )
+
+[node name="TopTrigger" type="Area2D" parent="KinematicBody2D"]
+script = ExtResource( 11 )
+
+[node name="TopShape" type="CollisionShape2D" parent="KinematicBody2D/TopTrigger"]
+position = Vector2( 0, -8 )
+rotation = 1.5708
+scale = Vector2( 2, 1 )
+shape = SubResource( 12 )
+
+[node name="DownTrigger" type="Area2D" parent="KinematicBody2D"]
+script = ExtResource( 11 )
+
+[node name="DownShape" type="CollisionShape2D" parent="KinematicBody2D/DownTrigger"]
+position = Vector2( 0, 8 )
+rotation = 1.5708
+scale = Vector2( 2, 1 )
+shape = SubResource( 12 )

@@ -14,9 +14,9 @@ onready var maxFrames = getMaxFrames()
 
 
 func _ready():
-	$Player.stopAnimation()
-	$Player.disableMovement(true)
-	$Player.setBodyFrame(0)
+	$Player.stop_animation()
+	$Player.disable_movement(true)
+	$Player.set_body_frame(0)
 	updatePlayerBody()
 	$Camera2D.set_new_node(self)
 
@@ -54,13 +54,13 @@ func getMaxFrames():
 
 
 func updatePlayerBody():
-	$Player.setBodyIndices(
+	$Player.set_body_indices(
 		[bodyIndex, armIndex, upperIndex, lowerIndex, shoesIndex, hairIndex, moustacheIndex]
 	)
 
 
 func setmale(male: bool):
-	$Player.setGender(male)
+	$Player.set_gender(male)
 	maxIndices = getMaxIndices()
 	checkBodyFrames()
 	updatePlayerBody()
@@ -96,7 +96,7 @@ func rotatePlayer(right: bool):
 			frameIndex = maxFrames - 4
 		else:
 			frameIndex -= 4
-	$Player.setBodyFrame(frameIndex)
+	$Player.set_body_frame(frameIndex)
 
 
 func updateArms(next: bool):

@@ -11,3 +11,11 @@ START_GAME,Start game,Spiel starten
 MALE,Male,Män.
 FEMALE,Female,Weibl.
 LIPS,Lips,Lippen
+DOOR_WOOD,Wooden Door,Holztür
+DOOR_IRON,Iron Door,Eisentür
+WINDOW,Window,Fenster
+CLOSET,Closet,Schrank
+FRIDGE,Fridge,Kühlschrank
+ARLAM_SYSTEM,Alarm System,Alarmanlage
+FUSE_BOX,Fuse Box,Sicherungskasten
+DESK,Desk,Schreibtisch

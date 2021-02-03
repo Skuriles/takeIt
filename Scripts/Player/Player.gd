@@ -14,25 +14,29 @@ onready var animatedSprite = $KinematicBody2D/BodySprites/AnimationPlayer
 
 var LastDirection = EDirections.IdleDown
 
-var animationAllowed = true
-var noMovement = false
+var animation_allowed = true
+var no_movement = false
 
 
 func _ready():
 	baseChar = GameManager.baseChar	
-	setBodyIndices(baseChar.mainCharBodyIndices)			
+	set_body_indices(baseChar.mainCharBodyIndices)			
 	animatedSprite.stop()
 	
 func _process(_delta):
-	if animationAllowed:
-		detectInput();
-		selectAnimation();		
+	if animation_allowed:
+		detect_input();
+		select_animation();		
 
-func setGender(male: bool):
+func _input(event):
+	if event.is_action_released("ui_accept"):	
+		check_objects()	
+
+func set_gender(male: bool):
 	baseChar.gender = male
 
 
-func setBodyFrame(index: int):
+func set_body_frame(index: int):
 	bodySprite.frame = index
 	armSprite.frame = index
 	upperSprite.frame = index
@@ -41,7 +45,7 @@ func setBodyFrame(index: int):
 	hairSprite.frame = index
 	moustachSprite.frame = index
 
-func setBodyIndices(spriteIndex: Array):	
+func set_body_indices(spriteIndex: Array):	
 	# think about to make a bool flag when to use it globally:
 	baseChar.mainCharBodyIndices = spriteIndex
 	if baseChar.gender:
@@ -61,13 +65,13 @@ func setBodyIndices(spriteIndex: Array):
 		hairSprite.texture = CompositeSprites.hair_sprites_w[spriteIndex[5]]	
 		moustachSprite.texture = CompositeSprites.moustache_sprites_w[spriteIndex[6]]	
 	
-func stopAnimation():
-	animationAllowed = false
+func stop_animation():
+	animation_allowed = false
 
-func disableMovement(disable: bool):
-	noMovement = disable
+func disable_movement(disable: bool):
+	no_movement = disable
 
-func detectInput():
+func detect_input():	
 	if Input.is_action_pressed("ui_left"):		
 		LastDirection = EDirections.WalkLeft;			
 		return;		
@@ -105,7 +109,7 @@ func detectInput():
 				animatedSprite.stop()			
 	
 
-func selectAnimation():				
+func select_animation():				
 	match LastDirection:
 		EDirections.None,EDirections.IdleDown:			
 			if animatedSprite.current_animation != "Idle_down":				
@@ -132,3 +136,29 @@ func selectAnimation():
 			if animatedSprite.current_animation != "Walk_right":				
 				animatedSprite.play("Walk_right")	
 		
+func check_objects():
+	var interactables
+	var prey
+	match LastDirection:
+		EDirections.WalkRight, EDirections.IdleRight:
+			interactables = $KinematicBody2D/RightTrigger.check_interactable()
+			prey = $KinematicBody2D/RightTrigger.check_prey()			
+		EDirections.WalkLeft, EDirections.IdleLeft:
+			interactables = $KinematicBody2D/LeftTrigger.check_interactable()
+			prey = $KinematicBody2D/LeftTrigger.check_prey()			
+		EDirections.WalkDown, EDirections.IdleDown:
+			interactables = $KinematicBody2D/DownTrigger.check_interactable()
+			prey = $KinematicBody2D/DownTrigger.check_prey()			
+		EDirections.WalkUp, EDirections.IdleUp:
+			interactables = $KinematicBody2D/TopTrigger.check_interactable()
+			prey = $KinematicBody2D/DownTrigger.check_prey()
+	open_overlay(interactables, prey)
+
+func open_overlay(interactables: Array, prey:Array):	
+	disable_movement(true)	
+	var parent = get_parent()
+	if parent.has_method("showOverlay"):
+		get_parent().showOverlay(interactables, prey)	
+	
+	
+

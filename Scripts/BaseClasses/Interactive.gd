@@ -1,17 +1,10 @@
-extends Resource
+extends Node
 class_name Interactive
 
-var rng = RandomNumberGenerator.new()
+const Prey = preload("res://Scripts/BaseClasses/Prey.gd")
 
-export var name: String
+export var alias: String
 export var image: Image
-export var minValue: int
-export var maxValue: int
-export var type: int  # EPreyTypes.Antique
-export var weight: int
-var value: int = calcValue()
-
-
-func calcValue():
-	rng.randomize()
-	value = rng.randf_range(minValue, maxValue)
+export var tools: Array
+export var hasPrey: bool
+var prey: Prey

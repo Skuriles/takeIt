@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/fuse_box.png-aa5a4c26ed4ec2123348371716db103a.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/fuse_box.png"
+dest_files=[ "res://.import/fuse_box.png-aa5a4c26ed4ec2123348371716db103a.image" ]
+
+[params]
+

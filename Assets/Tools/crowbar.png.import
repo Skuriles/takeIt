@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/crowbar.png-3ca840e6afd6bc64c54f51ee10dd7eeb.image"
+
+[deps]
+
+source_file="res://Assets/Tools/crowbar.png"
+dest_files=[ "res://.import/crowbar.png-3ca840e6afd6bc64c54f51ee10dd7eeb.image" ]
+
+[params]
+

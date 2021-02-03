@@ -20,6 +20,6 @@ func get_input():
 
 
 func _physics_process(_delta):
-	if player.noMovement == false:
+	if ! player.no_movement:
 		get_input()
 		var _move2 = move_and_slide(velocity)

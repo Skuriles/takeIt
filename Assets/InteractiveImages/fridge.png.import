@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/fridge.png-9bc32fa2388566dfa9e4c9a3886b115b.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/fridge.png"
+dest_files=[ "res://.import/fridge.png-9bc32fa2388566dfa9e4c9a3886b115b.image" ]
+
+[params]
+

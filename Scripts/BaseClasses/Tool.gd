@@ -1,11 +1,12 @@
-const Prey = preload("res://Scripts/BaseClasses/Prey.gd")
+extends Resource
+class_name Tools
 
-var name: String
-var priceNew: int
-var priceSell: int
-var image: Image
-var allowedTypes = []
-var typeTimes = {}
+export var name: String
+export var priceNew: int
+export var priceSell: int
+export var image: Image
+export var allowedTypes = []
+export var typeTimes = {}
 
 
 func get_time(prey: Prey):

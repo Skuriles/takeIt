@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/door_wood.png-14ce2945b69a9fe8596893d1b74e6d70.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/door_wood.png"
+dest_files=[ "res://.import/door_wood.png-14ce2945b69a9fe8596893d1b74e6d70.image" ]
+
+[params]
+

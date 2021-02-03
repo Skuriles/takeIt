@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/safe.png-1236731dbb9029fd56b88544f9ca70d5.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/safe.png"
+dest_files=[ "res://.import/safe.png-1236731dbb9029fd56b88544f9ca70d5.image" ]
+
+[params]
+

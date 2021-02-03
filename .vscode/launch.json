@@ -14,6 +14,8 @@
             "launch_game_instance": true,
             "launch_scene": true,
             "scene_file": "Scenes/Room_Kiosk.tscn"
+            // "scene_file": "Scenes/BaseOverlay.tscn"
+            
         }
     ]
 }

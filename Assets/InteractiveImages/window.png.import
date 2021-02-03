@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/window.png-7c14ea17f03861fbe49f3ea34921904c.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/window.png"
+dest_files=[ "res://.import/window.png-7c14ea17f03861fbe49f3ea34921904c.image" ]
+
+[params]
+

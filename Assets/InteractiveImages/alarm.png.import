@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/alarm.png-5f6fb831205acf869a7ba400bcee3ac1.image"
+
+[deps]
+
+source_file="res://Assets/InteractiveImages/alarm.png"
+dest_files=[ "res://.import/alarm.png-5f6fb831205acf869a7ba400bcee3ac1.image" ]
+
+[params]
+

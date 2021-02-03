@@ -16,15 +16,15 @@ var animationAllowed = true
 
 func _ready():
 	var array = GameManager.mainCharBodyIndices
-	setBodyIndices(array)			
+	set_body_indices(array)			
 	animatedSprite.stop()
 	
 func _process(_delta):
 	if animationAllowed:
-		detectInput();
-		selectAnimation();		
+		detect_input();
+		select_animation();		
 	
-func setBodyFrame(index: int):
+func set_body_frame(index: int):
 	bodySprite.frame = index
 	armSprite.frame = index
 	upperSprite.frame = index
@@ -33,7 +33,7 @@ func setBodyFrame(index: int):
 	hairSprite.frame = index
 	moustachSprite.frame = index
 
-func setBodyIndices(spriteIndex: Array):	
+func set_body_indices(spriteIndex: Array):	
 	# think about to make a bool flag when to use it globally:
 	GameManager.mainCharBodyIndices = spriteIndex
 	bodySprite.texture = CompositeSprites.body_sprites[spriteIndex[0]]
@@ -44,10 +44,10 @@ func setBodyIndices(spriteIndex: Array):
 	hairSprite.texture = CompositeSprites.hair_sprites[spriteIndex[5]]	
 	moustachSprite.texture = CompositeSprites.moustache_sprites[spriteIndex[6]]	
 	
-func stopAnimation():
+func stop_animation():
 	animationAllowed = false
 	
-func detectInput():
+func detect_input():
 	if Input.is_action_pressed("ui_left"):		
 		LastDirection = EDirections.WalkLeft;			
 		return;		
@@ -85,7 +85,7 @@ func detectInput():
 				animatedSprite.stop()			
 	
 
-func selectAnimation():				
+func select_animation():				
 	match LastDirection:
 		EDirections.None,EDirections.IdleDown:			
 			if animatedSprite.current_animation != "Idle_down":				

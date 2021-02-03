@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/screwdriver.png-4f98a85098ae9d215e66c5fe394e31f1.image"
+
+[deps]
+
+source_file="res://Assets/Tools/screwdriver.png"
+dest_files=[ "res://.import/screwdriver.png-4f98a85098ae9d215e66c5fe394e31f1.image" ]
+
+[params]
+
