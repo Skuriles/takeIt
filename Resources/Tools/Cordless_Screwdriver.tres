@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tools/cordless_screwdriver.png" type="Image" id=2]
+
+[resource]
+script = ExtResource( 1 )
+alias = "CORDLESS_SCREWDRIVER"
+description = "CORDLESS_SCREWDRIVER_DESC"
+price_new = 150
+price_sell = 100
+image = ExtResource( 2 )
+allowed_types = [ 0, 1, 5, 6 ]
+type_times = {
+0: 65,
+1: 25,
+5: 500,
+6: 720
+}
+type_loudness = {
+0: 65,
+1: 70,
+5: 72,
+6: 72
+}

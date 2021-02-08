@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/cordless_screwdriver.png-77fae4c132e2ecb4a032715a86891e30.image"
+
+[deps]
+
+source_file="res://Assets/Tools/cordless_screwdriver.png"
+dest_files=[ "res://.import/cordless_screwdriver.png-77fae4c132e2ecb4a032715a86891e30.image" ]
+
+[params]
+

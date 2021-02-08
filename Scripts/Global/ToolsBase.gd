@@ -4,7 +4,7 @@ const Tool = preload("res://Scripts/BaseClasses/Tool.gd")
 onready var all_tools: Dictionary
 
 
-func _ready():
+func _init():
 	var path = "res://Resources/Tools/"
 	var dir = Directory.new()
 	dir.open(path)
@@ -20,5 +20,9 @@ func _ready():
 			and file_name.ends_with(".tres")
 		):
 			var toolRes = load(path + file_name) as Tools
-			all_tools[toolRes.name] = toolRes
+			all_tools[toolRes.alias] = toolRes
 	dir.list_dir_end()
+
+
+func get_tool_basic():
+	return [all_tools["CROWBAR"], all_tools["HAND"], all_tools["SCREWDRIVER"]]

@@ -34,6 +34,10 @@ func _on_InteractList_item_selected(index: int):
 	item_selected(index)
 
 
+func _on_InteractList_item_activated(index: int):
+	var interact = interact_list.get_item_metadata(index)
+
+
 func item_selected(index: int):
 	var ele = interact_list.get_item_metadata(index)
 	if ele != null:

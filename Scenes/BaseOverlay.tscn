@@ -86,4 +86,5 @@ size = Vector2( 157, 146 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
+[connection signal="item_activated" from="PanelContainer/MarginContainer/BaseGrid/InteractList" to="." method="_on_InteractList_item_activated"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/BaseGrid/InteractList" to="." method="_on_InteractList_item_selected"]

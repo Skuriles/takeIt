@@ -8,23 +8,29 @@ export var price_sell: int
 export var image: Image
 export var allowed_types = []
 export var type_times = {}
+export var type_loudness = {}
+
+var res: Resource
 
 
-func get_time(_interact: Interactive):
-	pass
-	# var intVal = interact.type
-	# match intVal:
-	# 	EInteractiveTypes.Door_Wooden:
-	# 		return 15
-	# 	EInteractiveTypes.Door_Iron:
-	# 		return 30
-	# 	# EInteractiveTypes.Window = 2,
-	# 	# EInteractiveTypes.Desk = 3,
-	# 	# EInteractiveTypes.Closet = 4,
-	# 	# EInteractiveTypes.Safe = 5,
-	# 	# EInteractiveTypes.Big_Safe = 6,
-	# 	# EInteractiveTypes.Security = 7,
-	# 	# EInteractiveTypes.Security_High = 8,
-	# 	# EInteractiveTypes.Power = 9,
-	# 	# EInteractiveTypes.Fridge = 10
-	# 	# 	return 100
+func _ready():
+	alias = res.alias
+	image = res.image
+	price_new = res.price_new
+	price_sell = res.price_sell
+	allowed_types = res.allowed_types
+	type_loudness = type_loudness
+	type_times = res.type_times
+	description = res.description
+
+
+func get_time(interact: Interactive):
+	var int_val = interact.type
+	if allowed_types.has(int_val):
+		return type_times[int_val]
+
+
+func loudness(interact: Interactive):
+	var int_val = interact.type
+	if allowed_types.has(int_val):
+		return type_loudness[int_val]

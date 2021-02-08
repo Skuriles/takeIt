@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/Hammer.png-9620f8ea28487b34e41b397c20960a3b.image"
+
+[deps]
+
+source_file="res://Assets/Tools/Hammer.png"
+dest_files=[ "res://.import/Hammer.png-9620f8ea28487b34e41b397c20960a3b.image" ]
+
+[params]
+

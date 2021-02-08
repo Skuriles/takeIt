@@ -6,10 +6,24 @@
 [resource]
 script = ExtResource( 1 )
 alias = "CROWBAR"
+description = ""
 price_new = 15
 price_sell = 3
 image = ExtResource( 2 )
 allowed_types = [ 0, 1, 2, 3, 4, 11 ]
 type_times = {
-
+0: 15,
+1: 32,
+2: 22,
+3: 14,
+4: 15,
+11: 15
+}
+type_loudness = {
+0: 32,
+1: 35,
+2: 28,
+3: 25,
+4: 25,
+11: 25
 }

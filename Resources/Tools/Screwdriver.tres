@@ -6,10 +6,26 @@
 [resource]
 script = ExtResource( 1 )
 alias = "SCREWDRIVER"
+description = ""
 price_new = 18
 price_sell = 4
 image = ExtResource( 2 )
 allowed_types = [ 2, 3, 4, 11, 10, 9, 7 ]
 type_times = {
-
+2: 20,
+3: 18,
+4: 18,
+7: 120,
+9: 110,
+10: 13,
+11: 18
+}
+type_loudness = {
+2: 22,
+3: 24,
+4: 24,
+7: 18,
+9: 18,
+10: 18,
+11: 24
 }

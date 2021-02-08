@@ -13,5 +13,7 @@ enum {
 	Security_High = 8,
 	Power = 9,
 	Fridge = 10,
-	Cabinet = 11
+	Cabinet = 11,
+	Picture = 12,
+	Statue = 13
 }

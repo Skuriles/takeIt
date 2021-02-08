@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/lockpick.png-dd7c00ff8b0edf809d4303b4f275dee8.image"
+
+[deps]
+
+source_file="res://Assets/Tools/lockpick.png"
+dest_files=[ "res://.import/lockpick.png-dd7c00ff8b0edf809d4303b4f275dee8.image" ]
+
+[params]
+

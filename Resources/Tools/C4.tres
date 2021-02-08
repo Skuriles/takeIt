@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tools/C4.png" type="Image" id=2]
+
+[resource]
+script = ExtResource( 1 )
+alias = "C4_EXPLOSIVE"
+description = "C4_EXPLOSIVE_DESC"
+price_new = 250
+price_sell = 120
+image = ExtResource( 2 )
+allowed_types = [ 0, 1, 5, 6 ]
+type_times = {
+0: 10,
+1: 10,
+5: 25,
+6: 35
+}
+type_loudness = {
+0: 100,
+1: 100,
+5: 100,
+6: 100
+}
