@@ -1,15 +1,15 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Tools/crowbar.png" type="Image" id=2]
+[ext_resource path="res://Assets/Tools/screwdriver.png" type="Image" id=2]
 
 [resource]
 script = ExtResource( 1 )
-alias = "CROWBAR"
-price_new = 15
-price_sell = 3
+alias = "SCREWDRIVER"
+price_new = 18
+price_sell = 4
 image = ExtResource( 2 )
-allowed_types = [ 0, 1, 2, 3, 4, 11 ]
+allowed_types = [ 2, 3, 4, 11, 10, 9, 7 ]
 type_times = {
 
 }

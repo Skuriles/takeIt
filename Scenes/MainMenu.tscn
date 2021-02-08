@@ -17,10 +17,10 @@ position = Vector2( 212, -9 )
 scale = Vector2( 5, 5 )
 
 [node name="Labels" type="GridContainer" parent="."]
-margin_left = -308.0
-margin_top = -177.0
-margin_right = -158.0
-margin_bottom = 127.0
+margin_left = -296.0
+margin_top = -176.0
+margin_right = -146.0
+margin_bottom = 128.0
 theme = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,7 +112,7 @@ __meta__ = {
 }
 
 [node name="RotateLeft" type="Button" parent="ButtonGrid"]
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -122,8 +122,8 @@ __meta__ = {
 }
 
 [node name="RotateRight" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
-margin_right = 140.0
+margin_left = 60.0
+margin_right = 110.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -134,7 +134,7 @@ __meta__ = {
 
 [node name="ToggleArmsPrev" type="Button" parent="ButtonGrid"]
 margin_top = 45.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 85.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -144,9 +144,9 @@ __meta__ = {
 }
 
 [node name="ToggleArmsNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 45.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 85.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -157,7 +157,7 @@ __meta__ = {
 
 [node name="ToggleUpperPrev" type="Button" parent="ButtonGrid"]
 margin_top = 90.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -167,9 +167,9 @@ __meta__ = {
 }
 
 [node name="ToggleUpperNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 90.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -180,7 +180,7 @@ __meta__ = {
 
 [node name="ToggleLowerPrev" type="Button" parent="ButtonGrid"]
 margin_top = 135.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -190,9 +190,9 @@ __meta__ = {
 }
 
 [node name="ToggleLowerNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 135.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 175.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -203,7 +203,7 @@ __meta__ = {
 
 [node name="ToggleshoesPrev" type="Button" parent="ButtonGrid"]
 margin_top = 180.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -213,9 +213,9 @@ __meta__ = {
 }
 
 [node name="ToggleShoesNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 180.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 220.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -226,7 +226,7 @@ __meta__ = {
 
 [node name="ToggleHairPrev" type="Button" parent="ButtonGrid"]
 margin_top = 225.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 265.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -236,9 +236,9 @@ __meta__ = {
 }
 
 [node name="ToggleHairNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 225.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 265.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -249,7 +249,7 @@ __meta__ = {
 
 [node name="ToggleMoustachePrev" type="Button" parent="ButtonGrid"]
 margin_top = 270.0
-margin_right = 53.0
+margin_right = 50.0
 margin_bottom = 310.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -259,9 +259,9 @@ __meta__ = {
 }
 
 [node name="ToggleMoustacheNext" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
+margin_left = 60.0
 margin_top = 270.0
-margin_right = 140.0
+margin_right = 110.0
 margin_bottom = 310.0
 rect_min_size = Vector2( 50, 40 )
 group = SubResource( 1 )
@@ -270,20 +270,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SetMale" type="Button" parent="ButtonGrid"]
-margin_top = 315.0
-margin_right = 53.0
-margin_bottom = 355.0
-rect_min_size = Vector2( 50, 40 )
+[node name="SetMale" type="Button" parent="."]
+margin_left = -152.0
+margin_top = 144.0
+margin_right = -77.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 75, 40 )
 text = "MALE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SetFemale" type="Button" parent="ButtonGrid"]
-margin_left = 63.0
-margin_top = 315.0
-margin_right = 140.0
-margin_bottom = 355.0
-rect_min_size = Vector2( 50, 40 )
+[node name="SetFemale" type="Button" parent="."]
+margin_left = -64.0
+margin_top = 144.0
+margin_right = 13.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 75, 40 )
 text = "FEMALE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="NameContainer" type="GridContainer" parent="."]
 margin_left = 12.0
@@ -341,6 +348,6 @@ script = ExtResource( 4 )
 [connection signal="pressed" from="ButtonGrid/ToggleHairNext" to="ButtonGrid" method="_on_ToggleHairNext_pressed"]
 [connection signal="pressed" from="ButtonGrid/ToggleMoustachePrev" to="ButtonGrid" method="_on_ToggleMoustachePrev_pressed"]
 [connection signal="pressed" from="ButtonGrid/ToggleMoustacheNext" to="ButtonGrid" method="_on_ToggleMoustacheNext_pressed"]
-[connection signal="pressed" from="ButtonGrid/SetMale" to="ButtonGrid" method="_on_SetMale_pressed"]
-[connection signal="pressed" from="ButtonGrid/SetFemale" to="ButtonGrid" method="_on_SetFemale_pressed"]
+[connection signal="pressed" from="SetMale" to="ButtonGrid" method="_on_SetMale_pressed"]
+[connection signal="pressed" from="SetFemale" to="ButtonGrid" method="_on_SetFemale_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_StartGame_pressed"]

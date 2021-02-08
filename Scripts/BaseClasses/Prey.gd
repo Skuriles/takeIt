@@ -10,6 +10,7 @@ export var maxValue: int
 export var type: int  # EPreyTypes.Antique
 export var weight: int
 onready var value: int = calcValue()
+export var description: String
 
 
 func calcValue():

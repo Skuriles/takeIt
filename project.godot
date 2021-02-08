@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/General/EDirections.gd"
 }, {
 "base": "Node",
+"class": "EInteractiveTypes",
+"language": "GDScript",
+"path": "res://Scripts/General/EInteractiveTypes.gd"
+}, {
+"base": "Node",
 "class": "EPreyTypes",
 "language": "GDScript",
 "path": "res://Scripts/General/EPreyTypes.gd"
@@ -47,6 +52,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "EColors": "",
 "EDirections": "",
+"EInteractiveTypes": "",
 "EPreyTypes": "",
 "Interactive": "",
 "Prey": "",

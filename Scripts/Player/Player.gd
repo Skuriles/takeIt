@@ -29,7 +29,7 @@ func _process(_delta):
 		select_animation();		
 
 func _input(event):
-	if event.is_action_released("ui_accept"):	
+	if event.is_action_released("ui_accept"):			
 		check_objects()	
 
 func set_gender(male: bool):
@@ -155,10 +155,15 @@ func check_objects():
 	open_overlay(interactables, prey)
 
 func open_overlay(interactables: Array, prey:Array):	
-	disable_movement(true)	
+	enable_process(false)
 	var parent = get_parent()
 	if parent.has_method("showOverlay"):
 		get_parent().showOverlay(interactables, prey)	
+
+func close_overlay():
+	enable_process(true)
 	
-	
+func enable_process(enable: bool):
+	set_process(enable)
+	$KinematicBody2D.set_physics_process(enable)
 

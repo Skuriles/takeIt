@@ -1,7 +1,7 @@
 extends Node
 
 const Tool = preload("res://Scripts/BaseClasses/Tool.gd")
-onready var allTools: Array = Array()
+onready var all_tools: Dictionary
 
 
 func _ready():
@@ -20,5 +20,5 @@ func _ready():
 			and file_name.ends_with(".tres")
 		):
 			var toolRes = load(path + file_name) as Tools
-			allTools.push_back(toolRes)
+			all_tools[toolRes.name] = toolRes
 	dir.list_dir_end()

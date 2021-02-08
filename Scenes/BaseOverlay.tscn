@@ -1,111 +1,89 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/UI/BaseOverlay.gd" type="Script" id=1]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.968627, 0.968627, 0.968627, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 1, 0.984314, 0.984314, 1 )
+[ext_resource path="res://Themes/basic_theme.theme" type="Theme" id=2]
 
 [node name="BaseOverlay" type="CanvasLayer"]
 script = ExtResource( 1 )
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-anchor_right = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 625.0
+margin_bottom = 194.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_right = 595.0
+margin_bottom = 180.0
+theme = ExtResource( 2 )
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BaseGrid" type="GridContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 15.0
 margin_top = 15.0
+margin_right = 580.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 200, 150 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+columns = 3
 
-[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer"]
-margin_right = 625.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 200, 200 )
+[node name="Description" type="Label" parent="PanelContainer/MarginContainer/BaseGrid"]
+margin_right = 200.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 200, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/bg = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource( 2 )
+autowrap = true
 
-[node name="Description" type="RichTextLabel" parent="PanelContainer/HSplitContainer"]
-margin_right = 605.0
-margin_bottom = 200.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/HSplitContainer"]
-margin_left = 617.0
-margin_right = 625.0
-margin_bottom = 200.0
-
-[node name="PreyTab" type="Tabs" parent="PanelContainer/HSplitContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -299.0
-margin_right = -307.0
-margin_bottom = -36.0
+[node name="InteractList" type="ItemList" parent="PanelContainer/MarginContainer/BaseGrid"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 200, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PreyTabGrid" type="GridContainer" parent="PanelContainer/HSplitContainer/TabContainer/PreyTab"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PreyList" type="ItemList" parent="PanelContainer/HSplitContainer/TabContainer/PreyTab/PreyTabGrid"]
-margin_bottom = 164.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PreyImage" type="TextureRect" parent="PanelContainer/HSplitContainer/TabContainer/PreyTab/PreyTabGrid"]
-margin_left = 4.0
-margin_right = 4.0
-margin_bottom = 164.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="InteractTab" type="Tabs" parent="PanelContainer/HSplitContainer/TabContainer"]
+[node name="ImageContainer" type="Control" parent="PanelContainer/MarginContainer/BaseGrid"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = 36.0
-margin_bottom = -144.0
-
-[node name="InteractTabGrid" type="GridContainer" parent="PanelContainer/HSplitContainer/TabContainer/InteractTab"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -303.0
-margin_top = -32.0
-margin_right = -303.0
-margin_bottom = -32.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="InteractList" type="ItemList" parent="PanelContainer/HSplitContainer/TabContainer/InteractTab/InteractTabGrid"]
-margin_bottom = 164.0
+margin_left = 364.0
+margin_right = 564.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 200, 150 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="InteractImage" type="TextureRect" parent="PanelContainer/HSplitContainer/TabContainer/InteractTab/InteractTabGrid"]
-margin_left = 4.0
-margin_right = 4.0
-margin_bottom = 164.0
+[node name="InteractImage" type="TextureRect" parent="PanelContainer/MarginContainer/BaseGrid"]
+visible = false
+margin_top = 77.0
+margin_right = 278.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+expand = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="PanelContainer/MarginContainer/BaseGrid"]
+margin_left = 408.0
+margin_right = 565.0
+margin_bottom = 146.0
+rect_min_size = Vector2( 150, 146 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Viewport" type="Viewport" parent="PanelContainer/MarginContainer/BaseGrid/ViewportContainer"]
+size = Vector2( 157, 146 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+[connection signal="item_selected" from="PanelContainer/MarginContainer/BaseGrid/InteractList" to="." method="_on_InteractList_item_selected"]

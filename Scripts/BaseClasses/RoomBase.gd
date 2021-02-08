@@ -9,7 +9,7 @@ func showOverlay(interactables: Array, prey: Array):
 	if overlay != null:
 		remove_child(overlay)
 		overlay.queue_free()
-		$Player.disable_movement(false)
+		$Player.close_overlay()
 		return
 	overlay = BaseOverlay.instance()
 	add_child(overlay)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/TileSets/floors.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -11,8 +11,12 @@
 [ext_resource path="res://Assets/TileMaps/12_Kitchen_32x32.png" type="Texture" id=9]
 [ext_resource path="res://Assets/TileMaps/3_Bathroom_32x32.png" type="Texture" id=10]
 [ext_resource path="res://Assets/TileMaps/14_Basement_32x32.png" type="Texture" id=11]
-[ext_resource path="res://Assets/InteractiveImages/door_wood.png" type="Image" id=12]
-[ext_resource path="res://Scripts/BaseClasses/Interactive.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Interactive_Scripts/Grocery/Fridge_2.gd" type="Script" id=12]
+[ext_resource path="res://Resources/Interactive_Scripts/Grocery/Fridge_1.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Interactive_Scripts/Door_Wooden.gd" type="Script" id=14]
+[ext_resource path="res://Resources/Interactive_Scripts/Grocery/Desk_1.gd" type="Script" id=15]
+[ext_resource path="res://Resources/Interactive_Scripts/General/Door_Wooden.gd" type="Script" id=16]
+[ext_resource path="res://Resources/Interactive_Scripts/Grocery/Cabinet_1.gd" type="Script" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 40 )
@@ -53,10 +57,6 @@ extents = Vector2( 15.6667, 34.8145 )
 [node name="Room_Kiosk" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -40, 55 )
-scale = Vector2( 1.75, 1.75 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 script = ExtResource( 4 )
@@ -74,233 +74,239 @@ tile_data = PoolIntArray( -720914, 10, 0, -720913, 10, 0, -720912, 10, 0, -72091
 [node name="Walls" type="TileMap" parent="." groups=[
 "walls",
 ]]
-position = Vector2( 0.999969, 1.14441e-05 )
-z_index = 20
+z_index = 500
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 cell_tile_origin = 2
+cell_y_sort = true
 collision_use_kinematic = true
 format = 1
-tile_data = PoolIntArray( -917492, 1, 0, -851956, 1, 0, -786421, 1, 0, -655377, 1, 0, -720896, 1, 0, -720895, 1, 0, -720885, 1, 0, -589841, 1, 0, -524304, 1, 65536, -524303, 1, 65538, -524302, 1, 65538, -524301, 1, 65538, -524300, 1, 65538, -524299, 1, 65538, -524298, 1, 65538, -524297, 1, 65538, -524296, 1, 65538, -524295, 1, 327688, -524294, 1, 65538, -524293, 1, 65538, -524292, 1, 65538, -524291, 1, 65538, -524290, 1, 65538, -524289, 1, 65538, -589824, 1, 65538, -589823, 1, 65538, -589822, 1, 65538, -589821, 1, 65538, -589820, 1, 65538, -589819, 1, 65538, -589818, 1, 65538, -589817, 1, 65538, -589816, 1, 65538, -589815, 1, 65538, -589814, 1, 65538, -589813, 1, 65538, -589812, 1, 65538, -589811, 1, 65538, -589810, 1, 65538, -589809, 1, 65538, -589808, 1, 65539, -458768, 1, 131072, -458767, 1, 196613, -458766, 1, 196614, -458765, 1, 196614, -458764, 1, 196614, -458763, 1, 196614, -458762, 1, 196614, -458761, 1, 196614, -458760, 1, 196614, -458759, 1, 458760, -458758, 1, 196614, -458757, 1, 196614, -458756, 1, 196614, -458755, 1, 196614, -458754, 1, 196614, -458753, 1, 196614, -524288, 1, 196614, -524287, 1, 196614, -524286, 1, 196614, -524285, 1, 196614, -524284, 1, 196614, -524283, 1, 196614, -524282, 1, 196614, -524281, 1, 196614, -524280, 1, 196614, -524279, 1, 196614, -524278, 1, 196614, -524277, 1, 196614, -524276, 1, 196614, -524275, 1, 196614, -524274, 1, 196614, -524273, 1, 196615, -524272, 1, 262147, -393239, 1, 0, -393238, 1, 0, -393237, 1, 0, -393236, 1, 0, -393232, 1, 131072, -393230, 1, 0, -393229, 1, 0, -393223, 1, 458760, -458745, 1, 0, -458744, 1, 0, -458742, 1, 0, -458736, 1, 262147, -327699, 1, 0, -327698, 1, 0, -327697, 1, 0, -327696, 1, 131072, -327695, 1, 0, -327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -327687, 1, 458760, -393207, 1, 0, -393206, 1, 0, -393202, 1, 0, -393200, 1, 262147, -262160, 1, 131072, -262157, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 1, 0, -262153, 1, 0, -262152, 1, 0, -262151, 1, 458760, -327671, 1, 0, -327669, 1, 0, -327668, 1, 0, -327664, 1, 262147, -196624, 1, 131072, -196619, 1, 0, -196618, 1, 0, -196615, 1, 458760, -196614, 1, 0, -196613, 1, 0, -196612, 1, 0, -262135, 1, 0, -262131, 1, 0, -262130, 1, 0, -262128, 1, 262147, -131088, 1, 131072, -131082, 1, 0, -131081, 1, 0, -131079, 1, 458760, -196600, 1, 0, -196593, 1, 0, -196592, 1, 262147, -65552, 1, 65536, -65551, 1, 131078, -65550, 1, 131078, -65549, 1, 131078, -65548, 1, 131078, -65547, 1, 131078, -65546, 1, 131078, -65545, 1, 131079, -65544, 1, 0, -65543, 1, 524296, -131064, 1, 0, -131056, 1, 262147, -16, 1, 131072, -15, 1, 196614, -14, 1, 196614, -13, 1, 196614, -12, 1, 196614, -11, 1, 196614, -10, 1, 196614, -9, 1, 196615, -8, 1, 0, -7, 1, 196615, -65522, 1, 0, -65520, 1, 262147, 65520, 1, 131072, 65529, 1, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 8, 0, 0, 13, 1, 0, 16, 1, 262147, 131056, 1, 131072, 131059, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 1, 0, 65544, 0, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 0, 0, 65552, 1, 262147, 196592, 1, 65536, 196601, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131086, 0, 0, 131088, 1, 262147, 262128, 1, 131072, 262137, 1, 458760, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196615, 0, 0, 196620, 1, 0, 196623, 0, 0, 196624, 1, 262147, 327664, 1, 131072, 327673, 1, 458760, 327674, 1, 0, 327675, 1, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262152, 0, 0, 262155, 1, 0, 262159, 0, 0, 262160, 1, 262147, 393200, 1, 131072, 393209, 1, 458760, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327688, 0, 0, 327691, 1, 0, 327695, 0, 0, 327696, 1, 262147, 458736, 1, 131072, 458745, 1, 458760, 393216, 0, 0, 393226, 1, 0, 393232, 1, 262147, 393235, 1, 0, 524272, 1, 131072, 524281, 1, 458760, 458752, 0, 0, 458768, 1, 262147, 589802, -1073741823, 0, 589808, 1, 131072, 589814, -1073741823, 0, 589815, -1073741823, 0, 589816, -1073741823, 0, 589817, 1, 458760, 589818, -1073741823, 0, 589819, -1073741823, 0, 589820, -1073741823, 0, 589821, -1073741823, 0, 589822, -1073741823, 0, 589823, -1073741823, 0, 524288, -1073741823, 0, 524289, -1073741823, 0, 524290, -1073741823, 0, 524304, 1, 262147, 655338, -1073741823, 0, 655339, -1073741823, 0, 655340, -1073741823, 0, 655341, -1073741823, 0, 655342, -1073741823, 0, 655343, -1073741823, 0, 655344, 1, 65536, 655345, 1, 131078, 655346, 1, 131078, 655347, 1, 131078, 655348, 1, 131078, 655349, 1, 131078, 655350, 1, 131078, 655351, 1, 131078, 655352, 1, 131078, 655353, 1, 131078, 655354, 1, 131078, 655355, 1, 131078, 655356, 1, 131078, 655357, 1, 131078, 589825, 1, 131078, 589826, 1, 131078, 589827, 1, 131078, 589828, 1, 131078, 589829, 1, 131078, 589830, 1, 131078, 589831, 1, 131078, 589832, 1, 131078, 589833, 1, 131078, 589834, 1, 131078, 589835, 1, 131078, 589836, 1, 131078, 589837, 1, 131078, 589838, 1, 131078, 589839, 1, 131078, 589840, 1, 65539, 720880, 1, 196608, 720881, 1, 196614, 720882, 1, 196614, 720883, 1, 196614, 720884, 1, 196614, 720885, 1, 196614, 720886, 1, 196614, 720887, 1, 196614, 720888, 1, 196614, 720889, 1, 196614, 720890, 1, 196614, 720891, 1, 196614, 720892, 1, 196614, 720893, 1, 196614, 655361, 1, 196614, 655362, 1, 196614, 655363, 1, 196614, 655364, 1, 196614, 655365, 1, 196614, 655366, 1, 196614, 655367, 1, 196614, 655368, 1, 196614, 655369, 1, 196614, 655370, 1, 196614, 655371, 1, 196614, 655372, 1, 196614, 655373, 1, 196614, 655374, 1, 196614, 655375, 1, 196614, 655376, 1, 196611, 786431, 1, 0, 720896, 1, 0, 720902, -1073741823, 0, 851961, 1, 0, 851967, 1, 0, 917505, -1073741823, 0 )
+tile_data = PoolIntArray( -917492, 1, 0, -851956, 1, 0, -786421, 1, 0, -655377, 1, 0, -720896, 1, 0, -720895, 1, 0, -720885, 1, 0, -589841, 1, 0, -524304, 1, 65536, -524303, 1, 65538, -524302, 1, 65538, -524301, 1, 65538, -524300, 1, 65538, -524299, 1, 65538, -524298, 1, 65538, -524297, 1, 65538, -524296, 1, 65538, -524295, 1, 327688, -524294, 1, 65538, -524293, 1, 65538, -524292, 1, 65538, -524291, 1, 65538, -524290, 1, 65538, -524289, 1, 65538, -589824, 1, 65538, -589823, 1, 65538, -589822, 1, 65538, -589821, 1, 65538, -589820, 1, 65538, -589819, 1, 65538, -589818, 1, 65538, -589817, 1, 65538, -589816, 1, 65538, -589815, 1, 65538, -589814, 1, 65538, -589813, 1, 65538, -589812, 1, 65538, -589811, 1, 65538, -589810, 1, 65538, -589809, 1, 65538, -589808, 1, 65539, -458768, 1, 131072, -458767, 1, 196613, -458766, 1, 196614, -458765, 1, 196614, -458764, 1, 196614, -458763, 1, 196614, -458762, 1, 196614, -458761, 1, 196614, -458760, 1, 196614, -458759, 1, 458760, -458758, 1, 196614, -458757, 1, 196614, -458756, 1, 196614, -458755, 1, 196614, -458754, 1, 196614, -458753, 1, 196614, -524288, 1, 196614, -524287, 1, 196614, -524286, 1, 196614, -524285, 1, 196614, -524284, 1, 196614, -524283, 1, 196614, -524282, 1, 196614, -524281, 1, 196614, -524280, 1, 196614, -524279, 1, 196614, -524278, 1, 196614, -524277, 1, 196614, -524276, 1, 196614, -524275, 1, 196614, -524274, 1, 196614, -524273, 1, 196615, -524272, 1, 262147, -393239, 1, 0, -393238, 1, 0, -393237, 1, 0, -393236, 1, 0, -393232, 1, 131072, -393230, 1, 0, -393229, 1, 0, -393223, 1, 458760, -458745, 1, 0, -458744, 1, 0, -458742, 1, 0, -458736, 1, 262147, -327699, 1, 0, -327698, 1, 0, -327697, 1, 0, -327696, 1, 131072, -327695, 1, 0, -327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -327687, 1, 458760, -393207, 1, 0, -393206, 1, 0, -393202, 1, 0, -393200, 1, 262147, -262160, 1, 131072, -262157, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 1, 0, -262153, 1, 0, -262152, 1, 0, -262151, 1, 458760, -327671, 1, 0, -327669, 1, 0, -327668, 1, 0, -327664, 1, 262147, -196624, 1, 131072, -196619, 1, 0, -196618, 1, 0, -196615, 1, 458760, -196614, 1, 0, -196613, 1, 0, -196612, 1, 0, -262135, 1, 0, -262131, 1, 0, -262130, 1, 0, -262128, 1, 262147, -131088, 1, 131072, -131082, 1, 0, -131081, 1, 0, -131079, 1, 458760, -196600, 1, 0, -196593, 1, 0, -196592, 1, 262147, -65552, 1, 65536, -65551, 1, 131078, -65550, 1, 131078, -65549, 1, 131078, -65548, 1, 131078, -65547, 1, 131078, -65546, 1, 131078, -65545, 1, 131079, -65544, 1, 0, -65543, 1, 524296, -131064, 1, 0, -131056, 1, 262147, -16, 1, 131072, -15, 1, 196614, -14, 1, 196614, -13, 1, 196614, -12, 1, 196614, -11, 1, 196614, -10, 1, 196614, -9, 1, 196615, -8, 1, 0, -7, 1, 589832, -65522, 1, 0, -65520, 1, 262147, 65520, 1, 131072, 65529, 1, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 8, 0, 0, 13, 1, 0, 16, 1, 262147, 131056, 1, 131072, 131059, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 1, 0, 65544, 0, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 0, 0, 65552, 1, 262147, 196592, 1, 65536, 196601, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131086, 0, 0, 131088, 1, 262147, 262128, 1, 131072, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196615, 0, 0, 196620, 1, 0, 196623, 0, 0, 196624, 1, 262147, 327664, 1, 131072, 327674, 1, 0, 327675, 1, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262152, 0, 0, 262155, 1, 0, 262159, 0, 0, 262160, 1, 262147, 393200, 1, 131072, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327688, 0, 0, 327691, 1, 0, 327695, 0, 0, 327696, 1, 262147, 458736, 1, 131072, 393216, 0, 0, 393226, 1, 0, 393232, 1, 262147, 393235, 1, 0, 524272, 1, 131072, 458752, 0, 0, 458768, 1, 262147, 589802, -1073741823, 0, 589808, 1, 131072, 589814, -1073741823, 0, 589815, -1073741823, 0, 589816, -1073741823, 0, 589818, -1073741823, 0, 589819, -1073741823, 0, 589820, -1073741823, 0, 589821, -1073741823, 0, 589822, -1073741823, 0, 589823, -1073741823, 0, 524288, -1073741823, 0, 524289, -1073741823, 0, 524290, -1073741823, 0, 524304, 1, 262147, 655338, -1073741823, 0, 655339, -1073741823, 0, 655340, -1073741823, 0, 655341, -1073741823, 0, 655342, -1073741823, 0, 655343, -1073741823, 0, 655344, 1, 65536, 655345, 1, 131078, 655346, 1, 131078, 655347, 1, 131078, 655348, 1, 131078, 655349, 1, 131078, 655350, 1, 131078, 655351, 1, 131078, 655352, 1, 131078, 655353, 1, 131078, 655354, 1, 131078, 655355, 1, 131078, 655356, 1, 131078, 655357, 1, 131078, 589825, 1, 131078, 589826, 1, 131078, 589827, 1, 131078, 589828, 1, 131078, 589829, 1, 131078, 589830, 1, 131078, 589831, 1, 131078, 589832, 1, 131078, 589833, 1, 131078, 589834, 1, 131078, 589835, 1, 131078, 589836, 1, 131078, 589837, 1, 131078, 589838, 1, 131078, 589839, 1, 131078, 589840, 1, 65539, 720880, 1, 196608, 720881, 1, 196614, 720882, 1, 196614, 720883, 1, 196614, 720884, 1, 196614, 720885, 1, 196614, 720886, 1, 196614, 720887, 1, 196614, 720888, 1, 196614, 720889, 1, 196614, 720890, 1, 196614, 720891, 1, 196614, 720892, 1, 196614, 720893, 1, 196614, 655361, 1, 196614, 655362, 1, 196614, 655363, 1, 196614, 655364, 1, 196614, 655365, 1, 196614, 655366, 1, 196614, 655367, 1, 196614, 655368, 1, 196614, 655369, 1, 196614, 655370, 1, 196614, 655371, 1, 196614, 655372, 1, 196614, 655373, 1, 196614, 655374, 1, 196614, 655375, 1, 196614, 655376, 1, 196611, 786431, 1, 0, 720896, 1, 0, 720902, -1073741823, 0, 851961, 1, 0, 851967, 1, 0, 917505, -1073741823, 0 )
 
 [node name="Walls2" type="TileMap" parent="." groups=[
 "walls",
 ]]
-position = Vector2( -3.05176e-05, 1.14441e-05 )
-z_index = 20
+z_index = 500
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 32
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 cell_tile_origin = 2
+cell_y_sort = true
 collision_use_kinematic = true
 format = 1
-tile_data = PoolIntArray( -917492, 1, 0, -851956, 1, 0, -786421, 1, 0, -655377, 1, 0, -720885, 1, 0, -589841, 1, 0, -393239, 1, 0, -393238, 1, 0, -393237, 1, 0, -393236, 1, 0, -393230, 1, 0, -393229, 1, 0, -458745, 1, 0, -458744, 1, 0, -458742, 1, 0, -327699, 1, 0, -327698, 1, 0, -327697, 1, 0, -327695, 1, 0, -327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -393207, 1, 0, -393206, 1, 0, -393202, 1, 0, -262157, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 1, 0, -262152, 1, 0, -327671, 1, 0, -327669, 1, 0, -327668, 1, 0, -196619, 1, 0, -196614, 1, 0, -196613, 1, 0, -196612, 1, 0, -262135, 1, 0, -262131, 1, 0, -262130, 1, 0, -131082, 1, 0, -131081, 1, 0, -196600, 1, 0, -196593, 1, 0, -131064, 1, 0, -65522, 1, 0, 65529, 1, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 8, 0, 0, 13, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 1, 0, 65544, 0, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 0, 0, 196593, 1, 131078, 196594, 1, 131078, 196595, 1, 131078, 196596, 1, 131078, 196597, 1, 131078, 196598, 1, 131079, 196601, 1, 393224, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131086, 0, 0, 262129, 1, 196613, 262130, 1, 196614, 262131, 1, 196614, 262132, 1, 196614, 262133, 1, 196614, 262134, 1, 196615, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196615, 0, 0, 196620, 1, 0, 196623, 0, 0, 327674, 1, 0, 327675, 1, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262152, 0, 0, 262155, 1, 0, 262159, 0, 0, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327688, 0, 0, 327691, 1, 0, 327695, 0, 0, 393216, 0, 0, 393226, 1, 0, 393235, 1, 0, 458752, 0, 0, 589802, -1073741823, 0, 589814, -1073741823, 0, 589815, -1073741823, 0, 589816, -1073741823, 0, 589817, -1073741823, 0, 589818, -1073741823, 0, 589819, -1073741823, 0, 589820, -1073741823, 0, 589821, -1073741823, 0, 589822, -1073741823, 0, 589823, -1073741823, 0, 524288, -1073741823, 0, 524289, -1073741823, 0, 524290, -1073741823, 0, 655338, -1073741823, 0, 655339, -1073741823, 0, 655340, -1073741823, 0, 655341, -1073741823, 0, 655342, -1073741823, 0, 655343, -1073741823, 0, 786431, 1, 0, 720896, 1, 0, 720902, -1073741823, 0, 851961, 1, 0, 851967, 1, 0, 917505, -1073741823, 0 )
+tile_data = PoolIntArray( -917492, 1, 0, -851956, 1, 0, -786421, 1, 0, -655377, 1, 0, -720885, 1, 0, -589841, 1, 0, -393239, 1, 0, -393238, 1, 0, -393237, 1, 0, -393236, 1, 0, -393230, 1, 0, -393229, 1, 0, -458745, 1, 0, -458744, 1, 0, -458742, 1, 0, -327699, 1, 0, -327698, 1, 0, -327697, 1, 0, -327695, 1, 0, -327694, 1, 0, -327693, 1, 0, -327692, 1, 0, -393207, 1, 0, -393206, 1, 0, -393202, 1, 0, -262157, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 1, 0, -262152, 1, 0, -327671, 1, 0, -327669, 1, 0, -327668, 1, 0, -196619, 1, 0, -196614, 1, 0, -196613, 1, 0, -196612, 1, 0, -262135, 1, 0, -262131, 1, 0, -262130, 1, 0, -131082, 1, 0, -131081, 1, 0, -196600, 1, 0, -196593, 1, 0, -131064, 1, 0, -65522, 1, 0, 65529, 1, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 8, 0, 0, 13, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 1, 0, 65544, 0, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 0, 0, 196593, 1, 131078, 196594, 1, 131078, 196595, 1, 131078, 196596, 1, 131078, 196597, 1, 131078, 196598, 1, 131079, 196601, 1, 524295, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131086, 0, 0, 262129, 1, 196613, 262130, 1, 196614, 262131, 1, 196614, 262132, 1, 196614, 262133, 1, 196614, 262134, 1, 196615, 262137, 1, 458760, 262140, 1, 0, 262141, 1, 0, 262142, 1, 0, 262143, 1, 0, 196608, 1, 0, 196615, 0, 0, 196620, 1, 0, 196623, 0, 0, 327673, 1, 458760, 327674, 1, 0, 327675, 1, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262152, 0, 0, 262155, 1, 0, 262159, 0, 0, 393209, 1, 458760, 393215, 0, 0, 327680, 0, 0, 327681, 0, 0, 327688, 0, 0, 327691, 1, 0, 327695, 0, 0, 458745, 1, 458760, 393216, 0, 0, 393226, 1, 0, 393235, 1, 0, 524281, 1, 458760, 458752, 0, 0, 589802, -1073741823, 0, 589814, -1073741823, 0, 589815, -1073741823, 0, 589816, -1073741823, 0, 589817, 1, 458760, 589818, -1073741823, 0, 589819, -1073741823, 0, 589820, -1073741823, 0, 589821, -1073741823, 0, 589822, -1073741823, 0, 589823, -1073741823, 0, 524288, -1073741823, 0, 524289, -1073741823, 0, 524290, -1073741823, 0, 655338, -1073741823, 0, 655339, -1073741823, 0, 655340, -1073741823, 0, 655341, -1073741823, 0, 655342, -1073741823, 0, 655343, -1073741823, 0, 786431, 1, 0, 720896, 1, 0, 720902, -1073741823, 0, 851961, 1, 0, 851967, 1, 0, 917505, -1073741823, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -280, -136 )
+scale = Vector2( 1.75, 1.75 )
 
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Empty_shelf" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -96, -168 )
-z_index = 20
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( -128, -192 )
+z_index = 10
 
 [node name="Sprite" type="Sprite" parent="Objects/Empty_shelf"]
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 192, 512, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Empty_shelf"]
-position = Vector2( 0, 8 )
+position = Vector2( 32, 48 )
 shape = SubResource( 1 )
 
 [node name="Full_shelf" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -96, -40 )
-z_index = 20
+position = Vector2( -128, -72 )
+z_index = 1000
 
 [node name="Sprite" type="Sprite" parent="Objects/Full_shelf"]
-position = Vector2( 0, -16 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 576, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Full_shelf"]
-position = Vector2( 0, -8 )
+position = Vector2( 32, 48 )
 shape = SubResource( 1 )
 
 [node name="Full_shelf2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -3.05176e-05, -144 )
-z_index = 20
+position = Vector2( -32, -184 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Full_shelf2"]
-position = Vector2( 0, -16 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 576, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Full_shelf2"]
-position = Vector2( 0, -8 )
+position = Vector2( 32, 40 )
 shape = SubResource( 1 )
 
 [node name="Full_shelf3" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 0, -40 )
-z_index = 20
+position = Vector2( -32, -72 )
+z_index = 1000
 
 [node name="Sprite" type="Sprite" parent="Objects/Full_shelf3"]
-position = Vector2( 0, -16 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 480, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Full_shelf3"]
-position = Vector2( 0, -8 )
+position = Vector2( 33, 48 )
 shape = SubResource( 1 )
 
 [node name="Glass_Wall1" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 0, -40 )
-z_index = 20
+position = Vector2( 128, -72 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Glass_Wall1"]
-position = Vector2( 184, -48 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 736, 128, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Glass_Wall1"]
-position = Vector2( 184, -56 )
+position = Vector2( 64, 24 )
 shape = SubResource( 2 )
 
 [node name="Glass_Wall2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 128, -40 )
-z_index = 20
+position = Vector2( 256, -72 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Glass_Wall2"]
-position = Vector2( 184, -48 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 736, 128, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Glass_Wall2"]
-position = Vector2( 184, -56 )
+position = Vector2( 64, 24 )
 shape = SubResource( 2 )
 
 [node name="Glass_Wall3" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 256, -40 )
-z_index = 20
+position = Vector2( 384, -72 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Glass_Wall3"]
-position = Vector2( 184, -48 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 736, 128, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Glass_Wall3"]
-position = Vector2( 184, -56 )
+position = Vector2( 64, 24 )
 shape = SubResource( 2 )
 
 [node name="Oven1" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 464, -200 )
-z_index = 20
+position = Vector2( 440, -240 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Oven1"]
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 384, 192, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Oven1"]
+position = Vector2( 32, 40 )
 shape = SubResource( 3 )
 
 [node name="Bread_Shelf1" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 144, -48 )
-z_index = 20
+position = Vector2( 344, -240 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Bread_Shelf1"]
-position = Vector2( 224, -152 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 32, 256, 96, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bread_Shelf1"]
-position = Vector2( 224, -152 )
+position = Vector2( 48, 40 )
 shape = SubResource( 3 )
 
 [node name="Bread_Shelf2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 40, -40 )
-z_index = 20
+position = Vector2( 240, -232 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Bread_Shelf2"]
-position = Vector2( 224, -152 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 224, 1088, 64, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Bread_Shelf2"]
-position = Vector2( 224, -152 )
+position = Vector2( 32, 32 )
 shape = SubResource( 3 )
 
 [node name="Basket1" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -112, 272 )
-z_index = 20
+position = Vector2( -120, 240 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Basket1"]
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 480, 384, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Basket1"]
-position = Vector2( 0, -8 )
+position = Vector2( 16, 24 )
 shape = SubResource( 4 )
 
 [node name="Chair2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -368, -192 )
-z_index = 20
+position = Vector2( -392, -216 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Chair2"]
 texture = ExtResource( 11 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 192, 1120, 64, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Chair2"]
-position = Vector2( 0, -8 )
+position = Vector2( 32, 32 )
 scale = Vector2( 1.1, 1 )
 shape = SubResource( 4 )
 
@@ -308,414 +314,466 @@ shape = SubResource( 4 )
 "objects",
 ]]
 position = Vector2( -456, -224 )
-z_index = 20
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Light"]
 texture = ExtResource( 9 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 1056, 32, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Light"]
+position = Vector2( 16, 48 )
 scale = Vector2( 0.8, 2 )
 shape = SubResource( 4 )
 
 [node name="Table" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -424, 200 )
-z_index = 20
+position = Vector2( -456, 216 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Table"]
-position = Vector2( -8, 56 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 448, 1216, 64, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Objects/Table"]
-position = Vector2( -8, 56 )
+position = Vector2( 32, 32 )
 scale = Vector2( 2, 1 )
 shape = SubResource( 5 )
 
 [node name="Chair" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -368, 192 )
-z_index = 20
+position = Vector2( -376, 208 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Chair"]
-position = Vector2( -8, 56 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 32, 672, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Objects/Chair"]
-position = Vector2( -6, 68 )
+position = Vector2( 16, 48 )
 scale = Vector2( 0.8, 1.3 )
 shape = SubResource( 5 )
 
 [node name="Couch" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -248, 208 )
-z_index = 20
+position = Vector2( -288, 192 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Couch"]
-position = Vector2( -8, 0 )
 texture = ExtResource( 8 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 256, 608, 64, 64 )
 region_filter_clip = true
 
 [node name="Sprite2" type="Sprite" parent="Objects/Couch"]
-position = Vector2( -8, 32 )
+position = Vector2( 0, 32 )
 texture = ExtResource( 8 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 256, 704, 64, 32 )
 region_filter_clip = true
 
 [node name="Sprite3" type="Sprite" parent="Objects/Couch"]
-position = Vector2( -8, 64 )
+position = Vector2( 0, 64 )
 texture = ExtResource( 8 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 256, 672, 64, 32 )
 region_filter_clip = true
 
 [node name="Sprite4" type="Sprite" parent="Objects/Couch"]
-position = Vector2( -8, 40 )
+position = Vector2( 16, 32 )
 texture = ExtResource( 8 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 544, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Objects/Couch"]
-position = Vector2( 0, 35 )
+position = Vector2( 40, 56 )
 scale = Vector2( 1.5, 2.6 )
 shape = SubResource( 5 )
 
 [node name="Register" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 24, 248 )
-z_index = 20
+position = Vector2( -120, 128.121 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Register"]
-position = Vector2( -104, -56 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 128, 736, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Register"]
-position = Vector2( -104, -56 )
+position = Vector2( 32, 48 )
 shape = SubResource( 6 )
 
 [node name="Security1" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -72, 248 )
-z_index = 20
+position = Vector2( -88, 216 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Security1"]
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 256, 704, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Security1"]
-position = Vector2( 8, 0 )
+position = Vector2( 24, 40 )
 shape = SubResource( 7 )
 
 [node name="Security2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( 40, 248 )
-z_index = 20
+position = Vector2( 32, 216 )
+z_index = 500
 
 [node name="Sprite" type="Sprite" parent="Objects/Security2"]
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 288, 704, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Security2"]
-position = Vector2( -8, 0 )
+position = Vector2( 8, 40 )
 shape = SubResource( 7 )
-
-[node name="Big_Shelf1" type="StaticBody2D" parent="Objects" groups=[
-"objects",
-]]
-position = Vector2( -48, 160 )
-z_index = 20
-
-[node name="Sprite" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 224, -152 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 320, 864, 160, 96 )
-region_filter_clip = true
-
-[node name="Sprite2" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 352, -168 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 384, 864, 96, 64 )
-region_filter_clip = true
-
-[node name="Sprite3" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 448, -168 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 384, 864, 96, 64 )
-region_filter_clip = true
-
-[node name="Sprite4" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 512, -152 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 480, 864, 32, 96 )
-region_filter_clip = true
-
-[node name="Sprite5" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 224, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite6" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 256, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite7" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 288, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite8" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 320, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite9" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 352, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite10" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 384, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite11" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 416, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite12" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 448, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite13" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 480, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 352, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite14" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 480, -144 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 288, 896, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite15" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 440, -144 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 224, 928, 32, 32 )
-region_filter_clip = true
-
-[node name="Sprite16" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 344, -120 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 192, 608, 64, 32 )
-region_filter_clip = true
-
-[node name="Sprite17" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 248, -144 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 32, 416, 128, 32 )
-region_filter_clip = true
-
-[node name="Sprite18" type="Sprite" parent="Objects/Big_Shelf1"]
-position = Vector2( 376, -136 )
-texture = ExtResource( 6 )
-region_enabled = true
-region_rect = Rect2( 320, 352, 64, 32 )
-region_filter_clip = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Big_Shelf1"]
-visible = false
-position = Vector2( 336, -144 )
-shape = SubResource( 8 )
 
 [node name="Big_Shelf2" type="StaticBody2D" parent="Objects" groups=[
 "objects",
 ]]
-position = Vector2( -48, 288 )
-z_index = 20
+position = Vector2( 112, 144 )
+z_index = 1000
 
 [node name="Sprite" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 224, -152 )
+position = Vector2( -32, -32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 320, 864, 160, 96 )
 region_filter_clip = true
 
 [node name="Sprite2" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 352, -168 )
+position = Vector2( 128, -32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 384, 864, 96, 64 )
 region_filter_clip = true
 
 [node name="Sprite3" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 448, -168 )
+position = Vector2( 224, -32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 384, 864, 96, 64 )
 region_filter_clip = true
 
 [node name="Sprite4" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 512, -152 )
+position = Vector2( 320, -32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 480, 864, 32, 96 )
 region_filter_clip = true
 
 [node name="Sprite5" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 224, -120 )
+position = Vector2( 32, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite6" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 256, -120 )
+position = Vector2( 64, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite7" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 288, -120 )
+position = Vector2( 96, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite8" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 320, -120 )
+position = Vector2( 128, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite9" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 352, -120 )
+position = Vector2( 160, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite10" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 384, -120 )
+position = Vector2( 192, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite11" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 416, -120 )
+position = Vector2( 224, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite12" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 448, -120 )
+position = Vector2( 256, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite13" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 480, -120 )
+position = Vector2( 288, 32 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 352, 928, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite14" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 480, -144 )
+position = Vector2( 272, 0 )
+z_index = 1
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 384, 640, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite15" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 440, -144 )
+position = Vector2( 216, 8 )
+z_index = 1
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 64, 416, 32, 32 )
 region_filter_clip = true
 
 [node name="Sprite16" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 328, -144 )
+position = Vector2( 104, 8 )
+z_index = 1
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 160, 928, 64, 32 )
 region_filter_clip = true
 
 [node name="Sprite17" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 232, -128 )
+position = Vector2( 8, 24 )
+z_index = 1
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 160, 448, 96, 32 )
 region_filter_clip = true
 
 [node name="Sprite18" type="Sprite" parent="Objects/Big_Shelf2"]
-position = Vector2( 384, -120 )
+position = Vector2( 152, 16 )
+z_index = 1
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 192, 64, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Big_Shelf2"]
-visible = false
-position = Vector2( 336, -144 )
+position = Vector2( 161, 24 )
+shape = SubResource( 8 )
+
+[node name="Big_Shelf1" type="StaticBody2D" parent="Objects" groups=[
+"interactable",
+"objects",
+]]
+position = Vector2( 128, 16 )
+z_index = 1500
+
+[node name="Sprite" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( -48, -32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 320, 864, 160, 96 )
+region_filter_clip = true
+
+[node name="Sprite2" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 112, -32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 384, 864, 96, 64 )
+region_filter_clip = true
+
+[node name="Sprite3" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 208, -32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 384, 864, 96, 64 )
+region_filter_clip = true
+
+[node name="Sprite4" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 304, -32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 480, 864, 32, 96 )
+region_filter_clip = true
+
+[node name="Sprite5" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 16, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite6" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 48, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite7" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 80, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite8" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 112, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite9" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 144, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite10" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 176, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite11" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 208, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite12" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 240, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite13" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 272, 32 )
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 352, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite14" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 257, 8 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 288, 896, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite15" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 217, 8 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 224, 928, 32, 32 )
+region_filter_clip = true
+
+[node name="Sprite16" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 121, 32 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 192, 608, 64, 32 )
+region_filter_clip = true
+
+[node name="Sprite17" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( -8, 8 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 416, 128, 32 )
+region_filter_clip = true
+
+[node name="Sprite18" type="Sprite" parent="Objects/Big_Shelf1"]
+position = Vector2( 40, 40 )
+z_index = 1
+texture = ExtResource( 6 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 320, 352, 64, 32 )
+region_filter_clip = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Big_Shelf1"]
+position = Vector2( 144, 24 )
 shape = SubResource( 8 )
 
 [node name="Interactable_Objects" type="Node2D" parent="."]
@@ -724,66 +782,69 @@ shape = SubResource( 8 )
 "interactable",
 "objects",
 ]]
-position = Vector2( 128, 0 )
-z_index = 20
-script = ExtResource( 13 )
-alias = "DOOR_WOOD"
-image = ExtResource( 12 )
-tools = [ 0 ]
+position = Vector2( -256, -64 )
+z_index = 500
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="Interactable_Objects/Door"]
-position = Vector2( -368, -32 )
 texture = ExtResource( 5 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 160, 1344, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_Objects/Door"]
-position = Vector2( -368.333, -12.6667 )
+position = Vector2( 16, 24 )
 scale = Vector2( 1, 0.6 )
 shape = SubResource( 9 )
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable_Objects/Door"]
-position = Vector2( -368, -40 )
+position = Vector2( 16, 48 )
 rotation = -6.28319
 scale = Vector2( 1, 0.4 )
 shape = SubResource( 10 )
+
+[node name="Resource" type="Node2D" parent="Interactable_Objects/Door"]
+script = ExtResource( 14 )
+alias = null
+tools = null
+hasPrey = null
+description = null
+type = null
 
 [node name="Door2" type="StaticBody2D" parent="Interactable_Objects" groups=[
 "interactable",
 "objects",
 ]]
-position = Vector2( -256, 96 )
-z_index = 20
-script = ExtResource( 13 )
-alias = "DOOR_WOOD"
-image = ExtResource( 12 )
-tools = [ 0 ]
+position = Vector2( -288, 64.1213 )
+z_index = 500
+script = ExtResource( 16 )
 
 [node name="Sprite" type="Sprite" parent="Interactable_Objects/Door2"]
-position = Vector2( -16, 0 )
 texture = ExtResource( 5 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 128, 1344, 32, 64 )
 region_filter_clip = true
 
 [node name="Sprite2" type="Sprite" parent="Interactable_Objects/Door2"]
-position = Vector2( 16, 0 )
+position = Vector2( 32, 0 )
 texture = ExtResource( 5 )
+centered = false
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 128, 1344, 32, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_Objects/Door2"]
-position = Vector2( -0.333313, 18.3333 )
+position = Vector2( 32, 18 )
 scale = Vector2( 2, 0.45 )
 shape = SubResource( 11 )
 one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable_Objects/Door2"]
-position = Vector2( 1.52588e-05, -9.66669 )
+position = Vector2( 32, 42 )
 rotation = -6.28319
 scale = Vector2( 2, 0.45 )
 shape = SubResource( 12 )
@@ -794,19 +855,19 @@ shape = SubResource( 12 )
 "objects",
 "prey",
 ]]
-position = Vector2( -328, 62 )
-z_index = 20
+position = Vector2( -335, 71 )
+z_index = 500
+script = ExtResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="Prey/Fridge1"]
-position = Vector2( -8, 56 )
 texture = ExtResource( 9 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 288, 736, 32, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Prey/Fridge1"]
-visible = false
-position = Vector2( -8, 56 )
+position = Vector2( 16, 48 )
 scale = Vector2( 1, 2 )
 shape = SubResource( 5 )
 
@@ -814,37 +875,39 @@ shape = SubResource( 5 )
 "objects",
 "prey",
 ]]
-position = Vector2( -360, -216 )
-z_index = 20
+position = Vector2( -392, -160 )
+z_index = 1000
+script = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Prey/Desk"]
-position = Vector2( -8, 56 )
 texture = ExtResource( 10 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 0, 384, 64, 64 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Prey/Desk"]
-position = Vector2( -8, 56 )
+position = Vector2( 32, 32 )
 scale = Vector2( 1.8, 1.6 )
 shape = SubResource( 5 )
 
-[node name="Closet" type="StaticBody2D" parent="Prey" groups=[
+[node name="Cabinet" type="StaticBody2D" parent="Prey" groups=[
 "objects",
 "prey",
 ]]
-position = Vector2( -264, -288 )
-z_index = 20
+position = Vector2( -296, -272 )
+z_index = 500
+script = ExtResource( 17 )
 
-[node name="Sprite" type="Sprite" parent="Prey/Closet"]
-position = Vector2( -8, 56 )
+[node name="Sprite" type="Sprite" parent="Prey/Cabinet"]
 texture = ExtResource( 8 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 32, 192, 64, 96 )
 region_filter_clip = true
 
-[node name="CollisionShape2" type="CollisionShape2D" parent="Prey/Closet"]
-position = Vector2( -8, 56 )
+[node name="CollisionShape2" type="CollisionShape2D" parent="Prey/Cabinet"]
+position = Vector2( 32, 48 )
 scale = Vector2( 1.5, 1.8 )
 shape = SubResource( 5 )
 
@@ -852,17 +915,18 @@ shape = SubResource( 5 )
 "objects",
 "prey",
 ]]
-position = Vector2( -424, 62 )
-z_index = 20
+position = Vector2( -440, 72 )
+z_index = 500
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Prey/Fridge2"]
-position = Vector2( -8, 56 )
 texture = ExtResource( 6 )
+centered = false
 region_enabled = true
 region_rect = Rect2( 384, 1088, 64, 96 )
 region_filter_clip = true
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="Prey/Fridge2"]
-position = Vector2( -8, 56 )
+position = Vector2( 32, 48 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 5 )

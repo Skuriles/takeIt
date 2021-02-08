@@ -19,3 +19,5 @@ FRIDGE,Fridge,Kühlschrank
 ARLAM_SYSTEM,Alarm System,Alarmanlage
 FUSE_BOX,Fuse Box,Sicherungskasten
 DESK,Desk,Schreibtisch
+DOOR_WOOD_DESC,"A simple wooden door, easy to break in","Einfache Holztüre, einfach zu überwinden"
+FRIDGE_DESC,A fridge to conserve delicatessen,Kühlschrank für Delikatessen
