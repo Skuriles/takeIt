@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tools/Hammer.png" type="Image" id=2]
+
+[resource]
+script = ExtResource( 1 )
+alias = "HAMMER"
+description = "HAMMER_DESC"
+price_new = 25
+price_sell = 11
+image = ExtResource( 2 )
+allowed_types = [ 2, 10, 11 ]
+type_times = {
+2: 8,
+10: 22,
+11: 20
+}
+type_loudness = {
+2: 83,
+10: 68,
+11: 55
+}

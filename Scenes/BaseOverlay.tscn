@@ -17,8 +17,8 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-margin_right = 595.0
-margin_bottom = 180.0
+margin_right = 638.0
+margin_bottom = 330.0
 theme = ExtResource( 2 )
 custom_constants/margin_right = 15
 custom_constants/margin_top = 15
@@ -31,8 +31,8 @@ __meta__ = {
 [node name="BaseGrid" type="GridContainer" parent="PanelContainer/MarginContainer"]
 margin_left = 15.0
 margin_top = 15.0
-margin_right = 580.0
-margin_bottom = 165.0
+margin_right = 623.0
+margin_bottom = 315.0
 rect_min_size = Vector2( 200, 150 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -40,7 +40,7 @@ columns = 3
 
 [node name="Description" type="Label" parent="PanelContainer/MarginContainer/BaseGrid"]
 margin_right = 200.0
-margin_bottom = 146.0
+margin_bottom = 296.0
 rect_min_size = Vector2( 200, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -50,33 +50,33 @@ autowrap = true
 [node name="InteractList" type="ItemList" parent="PanelContainer/MarginContainer/BaseGrid"]
 margin_left = 204.0
 margin_right = 404.0
-margin_bottom = 146.0
+margin_bottom = 296.0
 rect_min_size = Vector2( 200, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ImageContainer" type="Control" parent="PanelContainer/MarginContainer/BaseGrid"]
+[node name="ToolList" type="ItemList" parent="PanelContainer/MarginContainer/BaseGrid"]
 visible = false
-margin_left = 364.0
-margin_right = 564.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 200, 150 )
+margin_left = 408.0
+margin_right = 608.0
+margin_bottom = 148.0
+rect_min_size = Vector2( 200, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="InteractImage" type="TextureRect" parent="PanelContainer/MarginContainer/BaseGrid"]
 visible = false
-margin_top = 77.0
-margin_right = 278.0
-margin_bottom = 150.0
+margin_left = 408.0
+margin_right = 608.0
+margin_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
 
 [node name="ViewportContainer" type="ViewportContainer" parent="PanelContainer/MarginContainer/BaseGrid"]
 margin_left = 408.0
-margin_right = 565.0
-margin_bottom = 146.0
+margin_right = 608.0
+margin_bottom = 296.0
 rect_min_size = Vector2( 150, 146 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -88,3 +88,5 @@ handle_input_locally = false
 render_target_update_mode = 3
 [connection signal="item_activated" from="PanelContainer/MarginContainer/BaseGrid/InteractList" to="." method="_on_InteractList_item_activated"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/BaseGrid/InteractList" to="." method="_on_InteractList_item_selected"]
+[connection signal="item_activated" from="PanelContainer/MarginContainer/BaseGrid/ToolList" to="." method="_on_ToolList_item_activated"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/BaseGrid/ToolList" to="." method="_on_ToolList_item_selected"]

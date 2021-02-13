@@ -27,7 +27,7 @@ func _on_StartGame_pressed():
 
 
 func getMaxIndices():
-	if $Player.baseChar.gender:
+	if $Player.base_char.gender:
 		return [
 			CompositeSprites.body_sprites.size() - 1,
 			CompositeSprites.arm_sprites.size() - 1,

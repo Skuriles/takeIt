@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 alias = "SCREWDRIVER"
-description = ""
+description = "SCREWDRIVER_DESC"
 price_new = 18
 price_sell = 4
 image = ExtResource( 2 )

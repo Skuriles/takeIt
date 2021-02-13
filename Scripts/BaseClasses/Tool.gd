@@ -1,6 +1,7 @@
 extends Resource
 class_name Tools
 
+var ToolInfo = load("res://Scripts/BaseClasses/ToolInfo.gd")
 export var alias: String
 export var description: String
 export var price_new: int
@@ -30,7 +31,23 @@ func get_time(interact: Interactive):
 		return type_times[int_val]
 
 
-func loudness(interact: Interactive):
+func get_loudness(interact: Interactive):
 	var int_val = interact.type
 	if allowed_types.has(int_val):
 		return type_loudness[int_val]
+
+
+func can_interact(interact: Interactive):
+	var int_val = interact.type
+	return allowed_types.has(int_val)
+
+
+func get_info(interact: Interactive):
+	if ! can_interact(interact):
+		return null
+	var info = ToolInfo.new()
+	info.time = get_time(interact)
+	info.loudness = get_loudness(interact)
+	info.alias = alias
+	info.image = image
+	return info

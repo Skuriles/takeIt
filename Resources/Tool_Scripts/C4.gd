@@ -1,3 +1,5 @@
 extends Tools
 
-var res = load("res://Resources/Tools/Crowbar.tres")
+
+func _init():
+	res = load("res://Resources/Tools/Crowbar.tres")

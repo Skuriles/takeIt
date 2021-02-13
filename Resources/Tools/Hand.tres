@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 alias = "HAND"
-description = ""
+description = "HAND_DESC"
 price_new = 0
 price_sell = 0
 image = ExtResource( 2 )

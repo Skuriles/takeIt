@@ -1,8 +1,13 @@
 extends CanvasLayer
 
 onready var interact_list = $PanelContainer/MarginContainer/BaseGrid/InteractList
+onready var tool_list = $PanelContainer/MarginContainer/BaseGrid/ToolList
 onready var interact_image = $PanelContainer/MarginContainer/BaseGrid/InteractImage
 onready var description = $PanelContainer/MarginContainer/BaseGrid/Description
+onready var viewPortContainer = $PanelContainer/MarginContainer/BaseGrid/ViewportContainer
+onready var viewPort = $PanelContainer/MarginContainer/BaseGrid/ViewportContainer/Viewport
+
+signal interactive_selected(interactive)
 
 
 func _ready():
@@ -36,6 +41,46 @@ func _on_InteractList_item_selected(index: int):
 
 func _on_InteractList_item_activated(index: int):
 	var interact = interact_list.get_item_metadata(index)
+	emit_signal("interactive_selected", interact)
+
+
+func set_tool_info(list: Array):
+	viewPortContainer.visible = false
+	interact_list.visible = false
+	tool_list.visible = true
+	interact_image.visible = true
+	for ele in list:
+		var texture = ImageTexture.new()
+		texture.create_from_image(ele.image)
+		tool_list.add_item(tr(ele.alias), texture)
+		tool_list.set_item_metadata(tool_list.get_item_count() - 1, ele)
+	tool_selected(0)
+
+
+func tool_selected(index: int):
+	var ele = tool_list.get_item_metadata(index)
+	var infoStr = (
+		tr("TIME")
+		+ ": "
+		+ str(ele.time)
+		+ "\n"
+		+ tr("LOUDNESS")
+		+ ": "
+		+ str(ele.loudness)
+	)
+	description.text = infoStr
+	var texture = ImageTexture.new()
+	texture.create_from_image(ele.image)
+	interact_image.texture = texture
+
+
+func _on_ToolList_item_selected(index: int):
+	tool_selected(index)
+
+
+func _on_ToolList_item_activated(index: int):
+	var interact = tool_list.get_item_metadata(index)
+	# emit_signal("interactive_selected", interact)
 
 
 func item_selected(index: int):
@@ -65,7 +110,7 @@ func item_selected(index: int):
 		var currentPosY = 0
 		var offsetX = first_sprite.get_global_transform_with_canvas().origin.x
 		var offsetY = first_sprite.get_global_transform_with_canvas().origin.y
-		var viewPort = $PanelContainer/MarginContainer/BaseGrid/ViewportContainer/Viewport
+
 		for sprite in sprites:
 			var newSprite = sprite.duplicate()
 			newSprite.flip_h = sprite.flip_h

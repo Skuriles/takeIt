@@ -1,6 +1,6 @@
 extends Node2D
 
-var baseChar
+var base_char
 
 onready var bodySprite = $KinematicBody2D/BodySprites/Body
 onready var shoesSprite = $KinematicBody2D/BodySprites/Shoes
@@ -19,8 +19,8 @@ var no_movement = false
 
 
 func _ready():
-	baseChar = GameManager.baseChar	
-	set_body_indices(baseChar.mainCharBodyIndices)			
+	base_char = GameManager.base_char		
+	set_body_indices(base_char.mainCharBodyIndices)			
 	animatedSprite.stop()
 	
 func _process(_delta):
@@ -33,7 +33,7 @@ func _input(event):
 		check_objects()	
 
 func set_gender(male: bool):
-	baseChar.gender = male
+	base_char.gender = male
 
 
 func set_body_frame(index: int):
@@ -47,8 +47,8 @@ func set_body_frame(index: int):
 
 func set_body_indices(spriteIndex: Array):	
 	# think about to make a bool flag when to use it globally:
-	baseChar.mainCharBodyIndices = spriteIndex
-	if baseChar.gender:
+	base_char.mainCharBodyIndices = spriteIndex
+	if base_char.gender:
 		bodySprite.texture = CompositeSprites.body_sprites[spriteIndex[0]]
 		armSprite.texture = CompositeSprites.arm_sprites[spriteIndex[1]]		
 		upperSprite.texture = CompositeSprites.upper_sprites[spriteIndex[2]]
@@ -167,3 +167,11 @@ func enable_process(enable: bool):
 	set_process(enable)
 	$KinematicBody2D.set_physics_process(enable)
 
+
+func interact_selected(interact: Interactive):
+	var list = Array()
+	for ele in base_char.tools:
+		var info = ele.get_info(interact)
+		if info != null:
+			list.push_back(info)
+	get_parent().get_node("BaseOverlay").set_tool_info(list)

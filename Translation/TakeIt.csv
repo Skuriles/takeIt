@@ -1,23 +1,31 @@
 keys,en,de
-ARMS,Arms,Arms
-UPPER_BODY,Upper body,Oberkörper
-LOWER_BODY,Lower body,Unterkörper
-SHOES,Shoes,Schuhe
-HAIR,Hair,Haare
-MOUSTACHE,Moustache,Bart
-ROTATE,Rotate,Rotieren
-NAME,Name,Name
-START_GAME,Start game,Spiel starten
-MALE,Male,Män.
-FEMALE,Female,Weibl.
-LIPS,Lips,Lippen
-DOOR_WOOD,Wooden Door,Holztür
-DOOR_IRON,Iron Door,Eisentür
-WINDOW,Window,Fenster
-CLOSET,Closet,Schrank
-FRIDGE,Fridge,Kühlschrank
 ARLAM_SYSTEM,Alarm System,Alarmanlage
-FUSE_BOX,Fuse Box,Sicherungskasten
+ARMS,Arms,Arms
+C4,C4,C4
+C4_DESC,"Good old C4 explosive, fast and loud","Gutes alter C4 Sprengstoff, schnell und laut"
+CABINET,Cabinet,Kommode
+CABINET_DESC,"Small cabinet, easy to open, but most times provides nothing worth","Kleines Schränkchen, einfach zu öffnen, beinhaltet aber selten Wertvolles"
+CLOSET,Closet,Schrank
+CORDLESS_SCREWDRIVER,Cordless Screwdriver,Akkuschrauber
+CORDLESS_SCREWDRIVER_DESC,"A powerful cordless screwdriver to open wooden and iron boxes and doors ",Ein leistungsstarker Akkuschrauer um Boxen und Türen aus Holz und Eisen zu öffnen
+CROWBAR,Crowbar,Brecheisen
+CROWBAR_DESC,Classic crowbar to open nearly everything. Burglar basic.,Klassisches Brecheisen mit dem nahezu alles öffnen kann. Einbrecher Basisausstattung
 DESK,Desk,Schreibtisch
+DOOR_IRON,Iron Door,Eisentür
+DOOR_WOOD,Wooden Door,Holztür
 DOOR_WOOD_DESC,"A simple wooden door, easy to break in","Einfache Holztüre, einfach zu überwinden"
+FEMALE,Female,Weibl.
+FRIDGE,Fridge,Kühlschrank
 FRIDGE_DESC,A fridge to conserve delicatessen,Kühlschrank für Delikatessen
+FUSE_BOX,Fuse Box,Sicherungskasten
+HAIR,Hair,Haare
+LIPS,Lips,Lippen
+LOWER_BODY,Lower body,Unterkörper
+MALE,Male,Män.
+MOUSTACHE,Moustache,Bart
+NAME,Name,Name
+ROTATE,Rotate,Rotieren
+SHOES,Shoes,Schuhe
+START_GAME,Start game,Spiel starten
+UPPER_BODY,Upper body,Oberkörper
+WINDOW,Window,Fenster

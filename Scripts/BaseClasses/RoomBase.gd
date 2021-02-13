@@ -14,3 +14,4 @@ func showOverlay(interactables: Array, prey: Array):
 	overlay = BaseOverlay.instance()
 	add_child(overlay)
 	overlay.init(interactables, prey)
+	var _sig = overlay.connect("interactive_selected", $Player, "interact_selected")

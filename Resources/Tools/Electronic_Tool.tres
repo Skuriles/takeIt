@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/BaseClasses/Tool.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tools/electronic_tool.png" type="Image" id=2]
+
+[resource]
+script = ExtResource( 1 )
+alias = "ELECTRONIC_TOOLS"
+description = "ELECTRONIC_TOOLS_DESC"
+price_new = 80
+price_sell = 30
+image = ExtResource( 2 )
+allowed_types = [ 7, 8, 9 ]
+type_times = {
+7: 30,
+8: 95,
+9: 25
+}
+type_loudness = {
+7: 22,
+8: 35,
+9: 18
+}

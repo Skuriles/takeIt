@@ -1,9 +1,9 @@
 extends Node
 
 const PlayerBase = preload("res://Scripts/BaseClasses/PlayerBase.gd")
-var baseChar
+var base_char
 
 
 func _ready():
-	baseChar = PlayerBase.new()
-	baseChar.init_player()
+	base_char = PlayerBase.new()
+	base_char.init_player()
